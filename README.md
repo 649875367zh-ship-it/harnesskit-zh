@@ -67,7 +67,9 @@ HarnessKit manages **all five extension types** from a unified interface — **S
 
 <p align="center">
   <video src="https://github.com/user-attachments/assets/897611c4-4ca3-426f-91ba-fcda301e9cfe" width="800" autoplay loop muted playsinline></video>
+  <br/><em>Extension management: filter, search, and batch-manage across agents</em>
   <video src="https://github.com/user-attachments/assets/a2a74fd1-f3f2-4525-9d64-ba00378d6eef" width="800" autoplay loop muted playsinline></video>
+  <br/><em>Cross-agent deployment: push extensions to missing agents with one click</em>
 </p>
 
 ---
@@ -83,6 +85,7 @@ HarnessKit manages every agent's **Configs**, **Memory**, **Rules**, and **Ignor
 
 <p align="center">
   <video src="https://github.com/user-attachments/assets/9b38494a-2ab3-4071-a450-02a30b859323" width="800" autoplay loop muted playsinline></video>
+  <br/><em>Agent configs, memory, and rules — per-agent dashboard with live file preview</em>
 </p>
 
 ---
@@ -98,6 +101,7 @@ Every extension is scanned by a built-in security engine with 18 static analysis
 
 <p align="center">
   <video src="https://github.com/user-attachments/assets/5650c759-f30f-42df-83b2-cf0bafd3fb95" width="800" autoplay loop muted playsinline></video>
+  <br/><em>Security audit: trust scores, tiered findings, and per-file/line tracing</em>
 </p>
 
 ---
@@ -114,6 +118,7 @@ Every listing shows its description, install count, and source. For skills, you 
 
 <p align="center">
   <video src="https://github.com/user-attachments/assets/a80e2c95-52fe-4cd5-aab1-bd01b4c224cf" width="800" autoplay loop muted playsinline></video>
+  <br/><em>Marketplace: discover, preview, and install skills, MCP servers, and CLI tools</em>
 </p>
 
 ---
@@ -317,7 +322,7 @@ If you installed via manual download, grab the latest binary from [releases](htt
 
 If you've already installed HarnessKit via the [Web Mode](#-web-mode-macos--linux--windows) steps above, the CLI is ready to use — it's the same `hk` binary.
 
-See [CLI Support](#%EF%B8%8F-cli-support) above for the full list of commands.
+See [CLI Support](#%E2%8C%A8%EF%B8%8F-cli-support) above for the full list of commands.
 
 ---
 

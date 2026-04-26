@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/icons/harnesskit-icons.png" alt="HarnessKit" width="160" />
+  <img src="public/icons/harnesskit-icons.png" alt="HarnessKit 图标" width="160" />
 </p>
 
 <h1 align="center">HarnessKit 中文版</h1>
@@ -20,7 +20,7 @@
 <br/>
 
 <p align="center">
-  <img src="media/agents-animation.gif" alt="HarnessKit Agents Animation" width="800" />
+  <img src="media/agents-animation.gif" alt="HarnessKit Agent 展示动画" width="800" />
 </p>
 
 <br/>
@@ -32,7 +32,7 @@
 **HarnessKit 把它们全部统一管理** —— 从一个界面查看、保护和管理所有 Agent 的一切。
 
 <p align="center">
-  <img src="media/overview.png" alt="HarnessKit Overview" width="800" />
+  <img src="media/overview.png" alt="HarnessKit 概览界面" width="800" />
 </p>
 
 ---
