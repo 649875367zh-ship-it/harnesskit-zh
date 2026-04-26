@@ -110,7 +110,7 @@ export function ExtensionFilters() {
                 : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground",
             )}
           >
-            {kind ? kindLabel[kind] : "All"}
+            {kind ? kindLabel[kind] : "全部"}
           </button>
         ))}
         <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
@@ -126,7 +126,7 @@ export function ExtensionFilters() {
             }}
             className="shrink-0 rounded-md bg-muted/60 px-2 py-0.5 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
           >
-            Clear filters
+            清除筛选
           </button>
         )}
         <div className="flex-1" />
@@ -134,7 +134,7 @@ export function ExtensionFilters() {
           <select
             value={agentFilter ?? ""}
             onChange={(e) => setAgentFilter(e.target.value || null)}
-            aria-label="Filter by agent"
+            aria-label="按 Agent 筛选"
             style={webSelectStyle}
             className={clsx(
               "shrink-0 border px-3 text-xs capitalize focus:outline-none transition-colors",
@@ -144,7 +144,7 @@ export function ExtensionFilters() {
                 : "border-border bg-card text-foreground focus:border-ring",
             )}
           >
-            <option value="">All Agents</option>
+            <option value="">全部 Agent</option>
             {enabledAgents.map((agent) => (
               <option key={agent.name} value={agent.name}>
                 {agentDisplayName(agent.name)}
@@ -163,7 +163,7 @@ export function ExtensionFilters() {
               web ? "rounded-[6px] h-[26px]" : "rounded-lg py-1.5",
             )}
           >
-            <option value="">All Sources</option>
+            <option value="">全部来源</option>
             {allPacks.map((pack) => (
               <option key={pack} value={pack}>
                 {pack} ({packCounts.get(pack) ?? 0})
@@ -188,7 +188,7 @@ export function ExtensionFilters() {
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              aria-label="Clear search"
+              aria-label="清除搜索"
               className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
             >
               <X size={14} />

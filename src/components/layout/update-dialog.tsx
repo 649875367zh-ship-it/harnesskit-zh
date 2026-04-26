@@ -91,7 +91,7 @@ export function UpdateDialog() {
             ) : (
               <Download size={12} />
             )}
-            {installing ? "Updating..." : "Update Now"}
+            {installing ? "更新中..." : "立即更新"}
           </button>
         </div>
       </div>

@@ -90,7 +90,7 @@ export function DetailHeader({
                 ) : (
                   <ArrowDownCircle size={12} />
                 )}
-                {updating ? "Updating..." : "Update"}
+                {updating ? "更新中..." : "更新"}
               </button>
             );
           })()}

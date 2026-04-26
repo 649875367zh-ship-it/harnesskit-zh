@@ -95,7 +95,7 @@ function formatInstalls(n: number): string {
 
 function RiskBadge({ risk }: { risk: string | null }) {
   if (!risk)
-    return <span className="text-xs text-muted-foreground">unknown</span>;
+    return <span className="text-xs text-muted-foreground">未知</span>;
   const color =
     risk === "safe"
       ? "text-primary"
@@ -186,7 +186,7 @@ function ItemRow({
               {formatInstalls(item.stars)}
             </>
           ) : (
-            <>{formatInstalls(item.installs)} installs</>
+            <>{formatInstalls(item.installs)} 次安装</>
           )}
           {item.categories.length > 0 &&
             ` · ${item.categories.slice(0, 2).join(", ")}`}
@@ -337,7 +337,7 @@ export default function MarketplacePage() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <h2 className="text-2xl font-bold tracking-tight select-none">
-              Marketplace
+              扩展市场
             </h2>
             <button
               onClick={() => {
@@ -346,9 +346,7 @@ export default function MarketplacePage() {
               }}
               className="flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground shadow-sm transition-[background-color,box-shadow] duration-200 hover:bg-accent hover:shadow-md"
             >
-              <GitBranch size={12} />
-              Install from Git
-            </button>
+              <GitBranch size={12} />从 Git 安装</button>
             <button
               onClick={() => {
                 setInstallMode("local");
@@ -357,7 +355,7 @@ export default function MarketplacePage() {
               className="flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground shadow-sm transition-[background-color,box-shadow] duration-200 hover:bg-accent hover:shadow-md"
             >
               <FolderOpen size={12} />
-              Install from Local
+              从本地安装
             </button>
           </div>
           <div className="flex rounded-lg border border-border">
@@ -454,7 +452,7 @@ export default function MarketplacePage() {
             <div className="flex items-center gap-2 text-sm font-medium text-foreground">
               <TrendingUp size={14} className="text-primary" />
               <span>
-                Trending{" "}
+                热门{" "}
                 {tab === "skill"
                   ? "Skills"
                   : tab === "mcp"
@@ -557,13 +555,13 @@ export default function MarketplacePage() {
                         {formatInstalls(selectedItem.stars)}
                       </>
                     ) : (
-                      <>{formatInstalls(selectedItem.installs)} installs</>
+                      <>{formatInstalls(selectedItem.installs)} 次安装</>
                     )}
                   </p>
                 </div>
                 <button
                   onClick={closePreview}
-                  aria-label="Close details"
+                  aria-label="关闭详情"
                   className="shrink-0 rounded-lg p-2.5 text-muted-foreground hover:text-foreground"
                 >
                   <X size={18} />
@@ -663,11 +661,11 @@ export default function MarketplacePage() {
                   </>
                 )}
 
-                {/* Security Audit (skills only) */}
+                {/* Security 审计 (skills only) */}
                 {selectedItem.kind === "skill" && (
                   <div className="mt-4">
                     <h4 className="mb-2 border-b border-border pb-1 text-xs font-medium text-muted-foreground">
-                      Security Audit
+                      安全审计
                     </h4>
                     <div className="rounded-lg border border-border bg-card p-3">
                       {auditLoading ? (

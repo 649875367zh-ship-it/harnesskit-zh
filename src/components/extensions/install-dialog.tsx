@@ -153,7 +153,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
           setCloneId(result.clone_id);
           setPhase("select-skills");
         } else {
-          setError("No skills found in repository");
+          setError("未在仓库中找到技能");
         }
       }
     } catch (e) {
@@ -209,7 +209,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
     )
   ) : loading ? (
     <>
-      Installing
+      安装中
       <AnimatedEllipsis />
     </>
   ) : (
@@ -244,7 +244,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
                   }
                   placeholder={placeholder}
                   aria-label={
-                    isGit ? "Git repository URL" : "Local directory path"
+                    isGit ? "Git repository URL" : "本地目录路径"
                   }
                   aria-required="true"
                   aria-describedby={error ? "install-error" : undefined}
@@ -384,7 +384,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
               >
                 {loading ? (
                   <>
-                    Installing
+                    安装中
                     <AnimatedEllipsis />
                   </>
                 ) : (
@@ -397,7 +397,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
               disabled={loading}
               className="rounded-lg px-4 py-2 text-sm text-muted-foreground hover:text-foreground"
             >
-              Cancel
+              取消
             </button>
           </div>
         </div>

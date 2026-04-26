@@ -239,7 +239,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
           onClick={handleNext}
           className="mt-10 flex items-center gap-2 rounded-xl bg-primary px-7 py-2.5 text-[14px] font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02] active:scale-[0.98]"
         >
-          {isLast ? "Get Started" : "Next"}
+          {isLast ? "开始使用" : "下一步"}
           <ArrowRight size={15} className="opacity-60" />
         </button>
       </div>
@@ -452,7 +452,7 @@ function StepTrust() {
         file and line.
       </p>
 
-      {/* Audit + Marketplace side by side, equal */}
+      {/* 审计 + 扩展市场 并排，等宽 */}
       <div className="flex w-full gap-4" style={{ height: 300 }}>
         <div style={{ width: "calc(50% - 8px)", height: 300 }}>
           <MockAuditPreview />
@@ -1075,7 +1075,7 @@ function MockAuditPreview() {
         style={{ animation: "fade-in 300ms ease-out 150ms both" }}
       >
         <span className="text-[12px] font-bold text-foreground/70">
-          Security Audit
+          安全审计
         </span>
       </div>
 
@@ -1250,7 +1250,7 @@ function MockAuditRow({
 }
 
 /* ══════════════════════════════════════════════════════
-   Mock Marketplace Preview (Page 3, smaller)
+   Mock 扩展市场预览（第 3 页，较小）
    ══════════════════════════════════════════════════════ */
 
 const MOCK_MARKETPLACE_LIST = [
@@ -1314,9 +1314,7 @@ function MockMarketplacePreview() {
         className="mb-1.5"
         style={{ animation: "fade-in 300ms ease-out 150ms both" }}
       >
-        <span className="text-[12px] font-bold text-foreground/70">
-          Marketplace
-        </span>
+        <span className="text-[12px] font-bold text-foreground/70">扩展市场</span>
       </div>
 
       {/* Header: Install buttons + Search */}
@@ -1410,7 +1408,7 @@ function MockMarketplacePreview() {
               <div className="h-1.5 w-4/5 rounded-full bg-foreground/5" />
             </div>
 
-            {/* Security Audit — the key section */}
+            {/* 安全审计 — 关键部分 */}
             <div
               className="rounded-lg p-2"
               style={{
@@ -1419,7 +1417,7 @@ function MockMarketplacePreview() {
               }}
             >
               <div className="text-[8px] font-semibold text-muted-foreground/50 mb-1.5">
-                Security Audit
+                安全审计
               </div>
               <div className="flex flex-col gap-1.5">
                 {MOCK_AUDITORS.map((a) => (

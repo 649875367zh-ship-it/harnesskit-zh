@@ -90,7 +90,7 @@ export default function AuditPage() {
   const pendingScrollRef = useRef<string | null>(searchParams.get("ext"));
   useEffect(() => {
     if (!pendingScrollRef.current) return;
-    // Clear filters so the target extension is guaranteed to be visible
+    // 清除筛选使目标扩展可见
     setSearchQuery("");
     setTierFilter(null);
     if (searchParams.has("ext")) {
@@ -281,7 +281,7 @@ export default function AuditPage() {
       <div className="shrink-0 space-y-4 pb-4">
         <div className="flex items-center gap-3">
           <h2 className="text-2xl font-bold tracking-tight select-none">
-            Security Audit
+            安全审计
           </h2>
           <button
             onClick={runAudit}
@@ -293,14 +293,14 @@ export default function AuditPage() {
               className={loading ? "animate-spin" : ""}
               aria-hidden="true"
             />
-            {loading ? "Auditing..." : "Run Audit"}
+            {loading ? "审计中..." : "运行审计"}
           </button>
           {extensionsReady && results.length > 0 && (
             <p className="text-sm text-muted-foreground">
               <span className="font-medium text-foreground">
                 {totalExtensions}
               </span>{" "}
-              extensions scanned · Last run {(() => {
+              个扩展已扫描 · 上次运行 {(() => {
                 const t = formatRelativeTime(
                   results.reduce(
                     (latest, r) =>
@@ -325,14 +325,14 @@ export default function AuditPage() {
 
         {extensionsReady && results.length > 0 && (
           <p className="text-xs text-muted-foreground">
-            Trust scores (0–100) reflect {AUDIT_RULES.length} security checks.
-            80+ is safe, 60–79 is low risk, below 60 needs review.
+            Trust scores (0–100) reflect {AUDIT_RULES.length} 项安全检查。
+            80+ 安全，60–79 低风险，60 以下需审核。
           </p>
         )}
 
         <Hint id="audit-disclaimer">
-          Automated heuristic checks — not a substitute for professional
-          security review.
+          自动化启发式检查——不能替代专业
+          安全审核。
         </Hint>
 
         {/* Search & Filters */}
@@ -346,7 +346,7 @@ export default function AuditPage() {
               />
               <input
                 type="text"
-                placeholder="Search extensions..."
+                placeholder="搜索扩展..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 aria-label="Search extensions"
@@ -355,7 +355,7 @@ export default function AuditPage() {
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  aria-label="Clear search"
+                  aria-label="清除搜索"
                   className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
                   <X size={14} />
@@ -381,7 +381,7 @@ export default function AuditPage() {
               {filteredResults.length} results
             </span>
 
-            {/* Clear filters */}
+            {/* 清除筛选 */}
             {(searchQuery || tierFilter) && (
               <button
                 onClick={() => {
@@ -390,7 +390,7 @@ export default function AuditPage() {
                 }}
                 className="rounded-md bg-muted/60 px-2 py-0.5 text-xs text-foreground/70 hover:bg-muted hover:text-foreground transition-colors"
               >
-                Clear filters
+                清除筛选
               </button>
             )}
           </div>
@@ -404,10 +404,10 @@ export default function AuditPage() {
           {(loading || !extensionsReady) && results.length === 0 && (
             <div className="py-12 px-6" aria-live="polite" role="status">
               <p className="text-sm font-medium text-foreground">
-                Running security audit...
+                正在运行安全审计...
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Scanning your extensions for security issues.
+                正在扫描扩展的安全问题。
               </p>
               <div className="mt-4">
                 <IndeterminateBar className="max-w-xs" />
@@ -417,24 +417,24 @@ export default function AuditPage() {
           {!loading && extensionsReady && results.length === 0 && (
             <div className="py-12 px-6" aria-live="polite" role="status">
               <h3 className="text-lg font-semibold text-foreground">
-                Ready to audit
+                准备审计
               </h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Scan your extensions for vulnerabilities, dangerous commands,
-                and trust scores.
+                扫描扩展的漏洞、危险命令，
+                和信任评分。
               </p>
               <button
                 onClick={runAudit}
                 className="mt-4 flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm text-primary-foreground hover:bg-primary/90"
               >
                 <Shield size={14} aria-hidden="true" />
-                Run Audit
+                运行审计
               </button>
             </div>
           )}
           {filteredResults.length === 0 && results.length > 0 && !loading && (
             <div className="py-8 text-center text-sm text-muted-foreground">
-              No extensions match your filters.
+              没有匹配筛选条件的扩展。
               <button
                 onClick={() => {
                   setSearchQuery("");
@@ -442,7 +442,7 @@ export default function AuditPage() {
                 }}
                 className="ml-1 font-medium text-foreground/70 hover:text-foreground transition-colors"
               >
-                Clear filters
+                清除筛选
               </button>
             </div>
           )}
@@ -494,7 +494,7 @@ export default function AuditPage() {
                   <button
                     onClick={() => setOpenId(isOpen ? null : primaryId)}
                     aria-expanded={isOpen}
-                    aria-label={`${isOpen ? "Collapse" : "Expand"} ${group.name} audit results`}
+                    aria-label={`${isOpen ? "收起" : "展开"} ${group.name} 审计结果`}
                     className="flex w-full cursor-pointer items-center justify-between rounded-xl px-4 py-3 transition-all duration-150 hover:bg-muted/50 hover:shadow-sm"
                   >
                     <div className="flex items-center gap-3">
@@ -539,7 +539,7 @@ export default function AuditPage() {
                                 <button
                                   onClick={() => toggleFinding(findingKey)}
                                   aria-expanded={isDetailOpen}
-                                  aria-label={`${isDetailOpen ? "Collapse" : "Expand"} ${rule.label} details`}
+                                  aria-label={`${isDetailOpen ? "收起" : "展开"} ${rule.label} 详情`}
                                   className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm text-left transition-colors duration-150 hover:bg-muted/30"
                                 >
                                   <CircleAlert

@@ -34,7 +34,7 @@ export default function AgentsPage() {
       </div>
       {loading ? (
         <div className="flex flex-1 items-center justify-center text-muted-foreground text-sm">
-          Loading...
+          加载中...
         </div>
       ) : (
         <AgentDetail />

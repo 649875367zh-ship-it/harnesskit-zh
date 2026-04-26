@@ -49,7 +49,7 @@ export function ExtensionTable({
               type="checkbox"
               checked={allSelected}
               onChange={() => (allSelected ? clearSelection() : selectAll())}
-              aria-label="Select all extensions"
+              aria-label="全选扩展"
               className="rounded border-border accent-primary"
             />
           );
@@ -74,7 +74,7 @@ export function ExtensionTable({
         size: 40,
       }),
       col.accessor("name", {
-        header: "Name",
+        header: "名称",
         sortingFn: (a, b) =>
           a.original.name.localeCompare(b.original.name, undefined, {
             sensitivity: "base",
@@ -112,7 +112,7 @@ export function ExtensionTable({
         },
       }),
       col.accessor("kind", {
-        header: "Kind",
+        header: "类型",
         cell: (info) => <KindBadge kind={info.getValue()} />,
       }),
       col.accessor("agents", {
@@ -336,7 +336,7 @@ export function ExtensionTable({
                       ? "No hooks match your filters."
                       : kindFilter === "cli"
                         ? "No CLIs match your filters."
-                        : "No extensions match your filters."}
+                        : "没有匹配筛选条件的扩展。"}
               <button
                 onClick={() => {
                   useExtensionStore.getState().setSearchQuery("");
@@ -346,7 +346,7 @@ export function ExtensionTable({
                 }}
                 className="ml-1 font-medium text-foreground/70 hover:text-foreground transition-colors"
               >
-                Clear filters
+                清除筛选
               </button>
             </p>
           ) : (
@@ -362,7 +362,7 @@ export function ExtensionTable({
                         ? "No hooks found"
                         : kindFilter === "cli"
                           ? "No CLIs found"
-                          : "No extensions found"}
+                          : "未找到扩展"}
               </h4>
               <p className="mt-1 text-xs text-muted-foreground">
                 Browse the Marketplace to discover and install skills, MCP

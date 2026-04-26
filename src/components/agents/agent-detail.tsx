@@ -28,7 +28,7 @@ export function AgentDetail() {
   if (!agent) {
     return (
       <div className="flex flex-1 items-center justify-center text-muted-foreground text-sm">
-        Select an agent to view its configuration
+        选择 Agent 查看配置
       </div>
     );
   }
@@ -135,7 +135,7 @@ export function AgentDetail() {
               <button
                 onClick={async () => {
                   const selected = await openDirectoryPicker({
-                    title: "Select folder",
+                    title: "选择文件夹",
                   });
                   if (selected) setCustomPath(selected);
                 }}

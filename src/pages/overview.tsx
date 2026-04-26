@@ -502,7 +502,7 @@ export default function OverviewPage() {
       {tipOfTheDay && (
         <section className="space-y-3">
           <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Tip of the day
+            每日提示
           </h3>
           <div className="flex items-center gap-3 rounded-xl border border-accent-foreground/10 bg-accent/60 px-4 py-3">
             <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -571,7 +571,7 @@ export default function OverviewPage() {
                 ))
               ) : (
                 <div className="flex items-center justify-center px-3 py-6 text-xs text-muted-foreground">
-                  No recent config changes
+                  最近没有配置变更
                 </div>
               )}
             </div>
@@ -580,7 +580,7 @@ export default function OverviewPage() {
           {/* Recent Extensions */}
           <section className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Recently installed
+              最近安装
             </h3>
             <div className="rounded-xl border border-border/60 bg-card/40 divide-y divide-border/40 max-h-[10.5rem] overflow-y-auto overscroll-contain">
               {extensionActivityItems.length > 0 ? (
@@ -619,7 +619,7 @@ export default function OverviewPage() {
                 ))
               ) : (
                 <div className="flex items-center justify-center px-3 py-6 text-xs text-muted-foreground">
-                  No recent installations
+                  最近没有安装记录
                 </div>
               )}
             </div>
@@ -633,16 +633,16 @@ export default function OverviewPage() {
       {stats.total_extensions === 0 && !hasAuditData && (
         <section className="space-y-5">
           <h3 className="font-serif text-xl font-semibold tracking-tight text-foreground">
-            One place for all your extensions
+            所有扩展，一站管理
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {(
               [
                 {
                   icon: Bot,
-                  label: "View extensions",
+                  label: "查看扩展",
                   description:
-                    "Browse and manage extensions across your coding agents",
+                    "浏览和管理所有编程 Agent 的扩展",
                   to: "/extensions",
                   delay: "0ms",
                 },
@@ -650,14 +650,14 @@ export default function OverviewPage() {
                   icon: ShoppingBag,
                   label: "Browse marketplace",
                   description:
-                    "Discover and install skills, MCP servers, and plugins",
+                    "发现和安装技能、MCP 服务和插件",
                   to: "/marketplace",
                   delay: "60ms",
                 },
                 {
                   icon: Shield,
                   label: "Run audit",
-                  description: "Check your extensions for security issues",
+                  description: "扫描扩展的安全问题",
                   to: "/audit",
                   delay: "120ms",
                 },
@@ -697,11 +697,11 @@ export default function OverviewPage() {
             aria-hidden="true"
           />
           <h3 className="mt-2 text-sm font-medium text-foreground">
-            Your workspace is ready
+            工作区已就绪
           </h3>
           <p className="mt-1 text-xs text-muted-foreground">
             Browse the marketplace to discover skills, MCP servers, and
-            agent-first CLIs.
+            Agent CLI 工具。
           </p>
           <div className="mt-3 flex items-center justify-center gap-3">
             <button
@@ -760,7 +760,7 @@ export default function OverviewPage() {
                   toast.success(
                     count > 0
                       ? `${count} update${count > 1 ? "s" : ""} available`
-                      : "No updates available",
+                      : "暂无可用更新",
                   );
                 });
               }}
@@ -768,7 +768,7 @@ export default function OverviewPage() {
             <QuickAction
               icon={ShoppingBag}
               label="Marketplace"
-              sublabel="Discover skills, CLI and MCP"
+              sublabel="发现技能、CLI 和 MCP"
               onClick={() => navigate("/marketplace")}
             />
           </div>

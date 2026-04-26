@@ -84,7 +84,7 @@ function UpdateSection() {
           ) : (
             <Download size={12} />
           )}
-          {installing ? "Updating..." : `Update to v${available.version}`}
+          {installing ? "更新中..." : `更新至 v${available.version}`}
         </button>
       ) : (
         <button
@@ -97,7 +97,7 @@ function UpdateSection() {
           ) : (
             <RefreshCw size={12} />
           )}
-          {checking ? "Checking..." : "Check for Updates"}
+          {checking ? "检查中..." : "检查更新"}
         </button>
       )}
     </div>
@@ -189,7 +189,7 @@ export default function SettingsPage() {
 
   const handleBrowseProject = async () => {
     const path = await openDirectoryPicker({
-      title: "Select Project Directory",
+      title: "选择项目目录",
     });
     if (path) handleAddPath(path);
   };
@@ -326,7 +326,7 @@ export default function SettingsPage() {
                         )}
                         <button
                           type="button"
-                          aria-label="Cancel"
+                          aria-label="取消"
                           className="shrink-0 rounded-md border border-border bg-background p-1.5 text-muted-foreground hover:text-foreground transition-colors"
                           onClick={() => setEditingAgent(null)}
                         >
@@ -419,12 +419,12 @@ export default function SettingsPage() {
             {discoveredProjects !== null && (
               <div className="rounded-lg border border-border bg-card p-4 space-y-3 shadow-sm">
                 <p className="text-xs text-muted-foreground">
-                  The selected directory is not a project. Found{" "}
-                  {discoveredProjects.length} project(s) inside:
+                  所选目录不是项目。在其中找到{" "}
+                  {discoveredProjects.length} 个项目：
                 </p>
                 {discoveredProjects.length === 0 ? (
                   <p className="text-xs text-muted-foreground italic">
-                    No projects found.
+                    未找到项目。
                   </p>
                 ) : (
                   <>
@@ -470,14 +470,14 @@ export default function SettingsPage() {
                         onClick={() => setDiscoveredProjects(null)}
                         className="rounded-lg border border-border px-3 py-1 text-xs text-muted-foreground hover:bg-muted"
                       >
-                        Cancel
+                        取消
                       </button>
                       <button
                         onClick={handleAddDiscovered}
                         disabled={discoveredSelected.size === 0 || adding}
                         className="rounded-lg bg-primary px-3 py-1 text-xs text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
                       >
-                        Add Selected ({discoveredSelected.size})
+                        添加所选 ({discoveredSelected.size})
                       </button>
                     </div>
                   </>
@@ -491,10 +491,10 @@ export default function SettingsPage() {
             ) : projects.length === 0 ? (
               <div className="rounded-lg border-2 border-dashed border-border bg-muted/20 p-6">
                 <h4 className="text-sm font-medium text-foreground">
-                  No projects yet
+                  暂无项目
                 </h4>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Add a project directory to scan for local extensions.
+                  添加项目目录以扫描本地扩展。
                 </p>
               </div>
             ) : (
@@ -553,10 +553,10 @@ export default function SettingsPage() {
             )}
           </section>
 
-          {/* Appearance */}
+          {/* 外观 */}
           <section className="space-y-4 border-t border-border pt-8">
             <h3 className="text-sm font-medium text-muted-foreground">
-              Appearance
+              外观
             </h3>
 
             <div className="flex flex-col gap-2 rounded-lg border border-border bg-card px-4 py-2.5 shadow-sm">
@@ -650,7 +650,7 @@ export default function SettingsPage() {
                                 toast.success(`Icon: ${icon.label}`);
                               })
                               .catch(() => {
-                                toast.error("Failed to set icon");
+                                toast.error("设置图标失败");
                               });
                           }}
                           aria-pressed={appIcon === icon.value}

@@ -183,7 +183,7 @@ export function DeleteDialog({
                 Uninstall "{displayName}"
               </h3>
               <p className="text-xs text-muted-foreground">
-                This action cannot be undone.
+                此操作无法撤销。
               </p>
             </div>
           </div>
@@ -239,7 +239,7 @@ export function DeleteDialog({
             disabled={deleting}
             className="mt-4 w-full rounded-lg border border-border px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-muted disabled:opacity-50"
           >
-            Cancel
+            取消
           </button>
         </div>
       </div>
@@ -272,7 +272,7 @@ export function DeleteDialog({
         ref={dlgRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Delete extension"
+        aria-label="删除扩展"
         tabIndex={-1}
         className="relative z-10 w-[calc(100%-2rem)] max-w-sm rounded-xl border border-border bg-card p-5 shadow-xl animate-fade-in outline-none max-h-[80vh] overflow-y-auto"
       >
@@ -286,7 +286,7 @@ export function DeleteDialog({
               Delete "{displayName}"
             </h3>
             <p className="text-xs text-muted-foreground">
-              This action cannot be undone.
+              此操作无法撤销。
             </p>
           </div>
         </div>
@@ -489,13 +489,13 @@ export function DeleteDialog({
           )}
         </div>
 
-        {/* Cancel */}
+        {/* 取消 */}
         <button
           onClick={onClose}
           disabled={deleting}
           className="mt-4 w-full rounded-lg border border-border px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-muted disabled:opacity-50"
         >
-          Cancel
+          取消
         </button>
       </div>
     </div>

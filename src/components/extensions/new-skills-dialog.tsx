@@ -233,8 +233,8 @@ export function NewSkillsDialog({
               <Download size={12} />
             )}
             {installing
-              ? "Installing..."
-              : `Install Selected (${selectedCount})`}
+              ? "安装中..."
+              : `安装所选 (${selectedCount})`}
           </button>
           <button
             onClick={onDismiss}
