@@ -70,11 +70,11 @@ export function DetailHeader({
                 );
                 if (inst) {
                   const skipped = await updateExtension(inst.id);
-                  if (!skipped) toast.success(`${group.name} updated`);
+                  if (!skipped) toast.success(`${group.name} 已更新`);
                 }
               } catch (e: unknown) {
                 const msg = e instanceof Error ? e.message : String(e);
-                toast.error(`Update failed: ${msg}`);
+                toast.error(`更新失败: ${msg}`);
               } finally {
                 setUpdating(false);
               }

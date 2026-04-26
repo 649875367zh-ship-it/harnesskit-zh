@@ -13,7 +13,7 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
 
 const CATEGORY_LABELS: Record<string, string> = {
   ...CONFIG_CATEGORY_LABELS,
-  custom: "Custom",
+  custom: "自定义 Custom",
 };
 
 export function ConfigSection({

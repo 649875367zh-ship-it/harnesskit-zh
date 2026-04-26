@@ -372,10 +372,10 @@ export default function AuditPage() {
               aria-label="Filter by trust tier"
               className="rounded-lg border border-border bg-card px-2.5 py-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-ring"
             >
-              <option value="">All Trust Tiers</option>
-              <option value="Safe">Safe</option>
-              <option value="LowRisk">Low Risk</option>
-              <option value="NeedsReview">Needs Review</option>
+              <option value="">全部 All Trust Tiers</option>
+              <option value="Safe">Safe 安全</option>
+              <option value="LowRisk">Low Risk 低风险</option>
+              <option value="NeedsReview">Needs Review 需审核</option>
             </select>
             <span className="text-xs text-muted-foreground">
               {filteredResults.length} results
@@ -479,7 +479,7 @@ export default function AuditPage() {
                         {group.name}
                       </span>
                     </div>
-                    <span className="text-xs text-muted-foreground">Clean</span>
+                    <span className="text-xs text-muted-foreground">Clean 干净</span>
                   </div>
                 );
               }
@@ -598,7 +598,7 @@ export default function AuditPage() {
                                       aria-hidden="true"
                                     />
                                     <span className="flex-1">{rule.label}</span>
-                                    <span className="text-xs">Pass</span>
+                                    <span className="text-xs">Pass 通过</span>
                                   </div>
                                 ))}
                             </>

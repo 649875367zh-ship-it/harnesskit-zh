@@ -70,7 +70,7 @@ export const useAgentStore = create<AgentState>((set, get) => ({
     try {
       await api.updateAgentOrder(orderedNames);
     } catch {
-      toast.error("Failed to save agent order");
+      toast.error("保存 Agent 排序失败");
       // Revert on failure
       get().fetch();
     }

@@ -166,15 +166,15 @@ export function ExtensionTable({
                         .map((t) => t.split("/").pop() || t)
                         .join(" ")
                     : ext.name;
-                const action = ext.enabled ? "disabled" : "enabled";
+                const action = ext.enabled ? "已禁用" : "已启用";
                 const ok = await toggle(ext.groupKey, !ext.enabled);
                 if (ok) {
                   toast.success(
-                    `${toastName} ${action}. Takes effect in new sessions`,
+                    `${toastName} ${action}。将在新会话中生效`,
                   );
                 } else {
                   toast.error(
-                    `Failed to ${ext.enabled ? "disable" : "enable"} ${toastName}`,
+                    `${ext.enabled ? "禁用" : "启用"} ${toastName} 失败`,
                   );
                 }
               }}

@@ -66,7 +66,7 @@ function UpdateSection() {
     await checkForUpdate();
     // Show toast if no update found (checked becomes true, available stays null)
     if (!useUpdateStore.getState().available) {
-      toast.success("You're up to date");
+      toast.success("已是最新版本");
     }
   };
 
@@ -168,7 +168,7 @@ export default function SettingsPage() {
       await addProject(path);
       setDiscoveredProjects(null);
       setProjectPathInput("");
-      toast.success("Project added");
+      toast.success("项目已添加");
     } catch {
       try {
         const results = await api.discoverProjects(path);
@@ -176,11 +176,11 @@ export default function SettingsPage() {
           setDiscoveredProjects(results);
           setDiscoveredSelected(new Set());
         } else {
-          toast.error("No projects found in directory");
+          toast.error("目录中未找到项目");
         }
       } catch (e) {
         console.error("Failed to discover projects:", e);
-        toast.error("Failed to discover projects");
+        toast.error("发现项目失败");
       }
     } finally {
       setAdding(false);
@@ -208,7 +208,7 @@ export default function SettingsPage() {
         }
       }
       if (added > 0)
-        toast.success(`${added} project${added > 1 ? "s" : ""} added`);
+        toast.success(`已添加 ${added} 个项目`);
       if (failed.length > 0)
         toast.error(
           `Failed to add ${failed.length} project${failed.length > 1 ? "s" : ""}: ${failed.join(", ")}`,
@@ -540,7 +540,7 @@ export default function SettingsPage() {
                       type="button"
                       onClick={() => {
                         removeProject(project.id);
-                        toast.success("Project removed");
+                        toast.success("项目已移除");
                       }}
                       className="text-muted-foreground hover:text-destructive transition-colors cursor-pointer focus:outline-none"
                       aria-label={`Remove ${project.name}`}
@@ -562,7 +562,7 @@ export default function SettingsPage() {
             <div className="flex flex-col gap-2 rounded-lg border border-border bg-card px-4 py-2.5 shadow-sm">
               {/* Theme */}
               <div className="flex items-center justify-between">
-                <span className="text-sm">Theme</span>
+                <span className="text-sm">Theme 主题</span>
                 <div className="flex rounded-lg border border-border">
                   {THEME_OPTIONS.map((t, i) => (
                     <button
@@ -600,7 +600,7 @@ export default function SettingsPage() {
 
               {/* Mode */}
               <div className="flex items-center justify-between">
-                <span className="text-sm">Mode</span>
+                <span className="text-sm">Mode 模式</span>
                 <div className="flex rounded-lg border border-border">
                   {(["system", "light", "dark"] as const).map((m, i) => (
                     <button
@@ -637,7 +637,7 @@ export default function SettingsPage() {
 
                   {/* App Icon — desktop only */}
                   <div className="flex items-center justify-between">
-                    <span className="text-sm">App Icon</span>
+                    <span className="text-sm">App Icon 图标</span>
                     <div className="flex gap-2">
                       {ICON_OPTIONS.map((icon) => (
                         <button
@@ -677,9 +677,9 @@ export default function SettingsPage() {
 
           {/* Footer */}
           <footer className="border-t border-border pt-6 pb-2 flex items-center justify-center gap-1.5 text-xs text-muted-foreground/50">
-            <span>HarnessKit</span>
+            <span>HarnessKit 中文版</span>
             <span>&middot;</span>
-            <span>One home for every agent</span>
+            <span>每个 Agent 的家</span>
             <span>&middot;</span>
             <a
               href="https://github.com/RealZST/HarnessKit"

@@ -7,6 +7,7 @@ import { agentDisplayName, type ConfigCategory } from "@/lib/types";
 import { useAgentConfigStore } from "@/stores/agent-config-store";
 import { ConfigSection } from "./config-section";
 import { ExtensionsSummaryCard } from "./extensions-summary-card";
+import { t } from "../../lib/i18n";
 
 const CATEGORY_ORDER: ConfigCategory[] = [
   "settings",
@@ -106,7 +107,7 @@ export function AgentDetail() {
           <div className="flex items-center gap-1.5">
             <input
               type="text"
-              placeholder="Paste a file or folder path..."
+              placeholder={t("config_paste_path")}
               value={customPath}
               onChange={(e) => setCustomPath(e.target.value)}
               onKeyDown={(e) => {
@@ -125,7 +126,7 @@ export function AgentDetail() {
                   if (selected) setCustomPath(selected);
                 }}
                 className="shrink-0 rounded-md border border-border bg-card px-2.5 py-1.5 text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                title="Browse file..."
+                title={t("config_browse_file")}
               >
                 <FileSearch size={14} />
               </button>
@@ -139,7 +140,7 @@ export function AgentDetail() {
                   if (selected) setCustomPath(selected);
                 }}
                 className="shrink-0 rounded-md border border-border bg-card px-2.5 py-1.5 text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                title="Browse folder..."
+                title={t("config_browse_folder")}
               >
                 <FolderSearch size={14} />
               </button>

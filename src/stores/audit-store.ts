@@ -39,10 +39,10 @@ export const useAuditStore = create<AuditState>((set) => ({
       set({ results, loading: false });
       // Refresh extensions so trust_score updates in the Extensions page
       useExtensionStore.getState().fetch();
-      toast.success("Audit complete");
+      toast.success("审计完成");
     } catch {
       set({ loading: false });
-      toast.error("Audit failed");
+      toast.error("审计失败");
     }
   },
 }));

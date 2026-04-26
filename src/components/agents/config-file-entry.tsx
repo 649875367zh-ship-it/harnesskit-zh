@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { t } from "../../lib/i18n";
 import { useScrollPassthrough } from "@/hooks/use-scroll-passthrough";
 import { openDirectoryPicker, openFilePicker } from "@/lib/dialog";
 import type { AgentConfigFile } from "@/lib/types";
@@ -131,7 +132,7 @@ export function ConfigFileEntry({ file }: { file: AgentConfigFile }) {
             </pre>
           ) : (
             <div className="text-[11px] text-muted-foreground mb-3">
-              {isPreviewLoading ? "Loading..." : "Preview unavailable."}
+              {isPreviewLoading ? t("config_loading") : t("config_preview_unavailable")}
             </div>
           )}
 
@@ -150,12 +151,12 @@ export function ConfigFileEntry({ file }: { file: AgentConfigFile }) {
                   onClick={async (e) => {
                     e.stopPropagation();
                     const selected = await openFilePicker({
-                      title: "Select file",
+                      title: t("select_file"),
                     });
                     if (selected) setEditPath(selected);
                   }}
                   className="shrink-0 rounded-md border border-border bg-card p-1.5 text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                  title="Browse file..."
+                title={t("config_browse_file")}
                 >
                   <FileSearch size={13} />
                 </button>
@@ -165,12 +166,12 @@ export function ConfigFileEntry({ file }: { file: AgentConfigFile }) {
                   onClick={async (e) => {
                     e.stopPropagation();
                     const selected = await openDirectoryPicker({
-                      title: "Select folder",
+                      title: t("select_folder"),
                     });
                     if (selected) setEditPath(selected);
                   }}
                   className="shrink-0 rounded-md border border-border bg-card p-1.5 text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                  title="Browse folder..."
+                title={t("config_browse_folder")}
                 >
                   <FolderSearch size={13} />
                 </button>
@@ -181,7 +182,7 @@ export function ConfigFileEntry({ file }: { file: AgentConfigFile }) {
                   setEditing(false);
                 }}
                 className="shrink-0 rounded-md border border-border bg-background p-1.5 text-muted-foreground hover:text-foreground transition-colors"
-                title="Cancel"
+                title={t("config_cancel")}
               >
                 <X size={13} />
               </button>
@@ -198,7 +199,7 @@ export function ConfigFileEntry({ file }: { file: AgentConfigFile }) {
                   setEditing(false);
                 }}
                 className="shrink-0 rounded-md bg-primary p-1.5 text-primary-foreground hover:bg-primary/90 disabled:opacity-40 transition-colors"
-                title="Save"
+                title={t("config_save")}
               >
                 <Check size={13} />
               </button>
@@ -221,7 +222,7 @@ export function ConfigFileEntry({ file }: { file: AgentConfigFile }) {
                     ) : (
                       <FileSearch size={12} />
                     )}{" "}
-                    {file.is_dir ? "Reveal in Finder" : "Open in Editor"}
+                    {file.is_dir ? t("config_reveal_finder") : t("config_open_editor")}
                   </button>
                 )}
                 {isDesktop() && !file.is_dir && (

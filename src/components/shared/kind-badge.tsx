@@ -1,5 +1,6 @@
 import { clsx } from "clsx";
 import type { ExtensionKind } from "@/lib/types";
+import { t } from "../../lib/i18n";
 
 const kindStyles: Record<ExtensionKind, string> = {
   skill: "bg-kind-skill/15 text-kind-skill ring-kind-skill/25",
@@ -18,11 +19,11 @@ const kindLabel: Record<ExtensionKind, string> = {
 };
 
 const kindTitle: Record<ExtensionKind, string> = {
-  skill: "Reusable prompt instructions for AI agents",
-  mcp: "Model Context Protocol server — extends agent capabilities",
-  plugin: "Agent-specific plugin extension",
-  hook: "Shell command triggered by agent events",
-  cli: "Agent-oriented CLI tool — binary + skills bundle",
+  skill: t("kind_skill_desc"),
+  mcp: t("kind_mcp_desc"),
+  plugin: t("kind_plugin_desc"),
+  hook: t("kind_hook_desc"),
+  cli: t("kind_cli_desc"),
 };
 
 export function KindBadge({ kind }: { kind: ExtensionKind }) {

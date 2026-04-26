@@ -127,7 +127,7 @@ function AuditSection({ audit }: { audit: SkillAuditInfo }) {
       ))}
       {audit.socket?.score != null && (
         <div className="flex items-center justify-between text-xs">
-          <span className="text-muted-foreground">Score</span>
+          <span className="text-muted-foreground">Score 评分</span>
           <span className="font-mono font-medium">
             {audit.socket.score}/100
           </span>
@@ -319,7 +319,7 @@ export default function MarketplacePage() {
       }
     } catch (e) {
       setError(String(e));
-      toast.error("Installation failed");
+      toast.error("安装失败");
     }
   };
 

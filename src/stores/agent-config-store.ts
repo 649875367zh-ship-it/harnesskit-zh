@@ -137,7 +137,7 @@ export const useAgentConfigStore = create<AgentConfigState>((set, get) => ({
     try {
       await api.openInSystem(path);
     } catch {
-      toast.error("Failed to open file");
+      toast.error("打开文件失败");
     }
   },
 
@@ -145,16 +145,16 @@ export const useAgentConfigStore = create<AgentConfigState>((set, get) => ({
     try {
       await api.revealInFileManager(path);
     } catch {
-      toast.error("Failed to reveal in Finder");
+      toast.error("在 Finder 中显示失败");
     }
   },
 
   async copyPath(path: string) {
     try {
       await navigator.clipboard.writeText(path);
-      toast.success("Path copied");
+      toast.success("路径已复制");
     } catch {
-      toast.error("Failed to copy path");
+      toast.error("复制路径失败");
     }
   },
 
@@ -166,43 +166,43 @@ export const useAgentConfigStore = create<AgentConfigState>((set, get) => ({
         (f) => f.path === path && f.custom_id == null,
       );
       if (existing) {
-        toast.error("This path is already detected automatically");
+        toast.error("此路径已被自动检测");
         return;
       }
       const customDup = detail.config_files.find(
         (f) => f.path === path && f.custom_id != null,
       );
       if (customDup) {
-        toast.error("This path has already been added");
+        toast.error("此路径已添加");
         return;
       }
     }
     try {
       await api.addCustomConfigPath(agent, path, label, category);
-      toast.success("Custom path added");
+      toast.success("自定义路径已添加");
       get().fetch();
     } catch {
-      toast.error("Failed to add custom path");
+      toast.error("添加自定义路径失败");
     }
   },
 
   async updateCustomPath(id, path, label, category) {
     try {
       await api.updateCustomConfigPath(id, path, label, category);
-      toast.success("Custom path updated");
+      toast.success("自定义路径已更新");
       get().fetch();
     } catch {
-      toast.error("Failed to update custom path");
+      toast.error("更新自定义路径失败");
     }
   },
 
   async removeCustomPath(id) {
     try {
       await api.removeCustomConfigPath(id);
-      toast.success("Custom path removed");
+      toast.success("自定义路径已移除");
       get().fetch();
     } catch {
-      toast.error("Failed to remove custom path");
+      toast.error("移除自定义路径失败");
     }
   },
 }));

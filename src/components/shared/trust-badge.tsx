@@ -1,5 +1,6 @@
 import { clsx } from "clsx";
 import { trustColor, trustTier } from "@/lib/types";
+import { t } from "../../lib/i18n";
 
 interface TrustBadgeProps {
   score: number;
@@ -7,15 +8,15 @@ interface TrustBadgeProps {
 }
 
 const tierTitle: Record<string, string> = {
-  Safe: "Score 80+: No security concerns found",
-  LowRisk: "Score 60-79: Minor issues, generally safe",
-  NeedsReview: "Score below 60: Review recommended",
+  Safe: t("trust_safe_desc"),
+  LowRisk: t("trust_low_risk_desc"),
+  NeedsReview: t("trust_needs_review_desc"),
 };
 
 const tierLabel: Record<string, string> = {
-  Safe: "Safe",
-  LowRisk: "Low Risk",
-  NeedsReview: "Needs Review",
+  Safe: t("trust_safe"),
+  LowRisk: t("trust_low_risk"),
+  NeedsReview: t("trust_needs_review"),
 };
 
 export function TrustBadge({ score, size = "md" }: TrustBadgeProps) {

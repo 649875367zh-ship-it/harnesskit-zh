@@ -442,7 +442,7 @@ export const useMarketplaceStore = create<MarketplaceState>((set, get) => ({
           skill_id = match.skill_id;
         } else {
           throw new Error(
-            "Could not resolve skill details for this trending item. Try searching for it directly.",
+            "找不到此热门项目的详情，请尝试直接搜索",
           );
         }
       }

@@ -11,6 +11,7 @@ import { agentDisplayName, sortAgents } from "@/lib/types";
 import { useAgentStore } from "@/stores/agent-store";
 import { useExtensionStore } from "@/stores/extension-store";
 import { toast } from "@/stores/toast-store";
+import { t } from "../../lib/i18n";
 
 export type InstallMode = "git" | "local";
 
@@ -121,7 +122,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
 
   const handleBrowse = async () => {
     const selected = await openDirectoryPicker({
-      title: "Select a skill directory containing SKILL.md",
+      title: t("install_select_dir"),
     });
     if (selected) setSource(selected);
   };
@@ -137,7 +138,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
         ]);
         await fetch();
         onClose();
-        toast.success(`${result.name} installed`);
+        toast.success(`${result.name} 已安装`);
       } else {
         const result = await api.scanGitRepo(source.trim(), [
           ...selectedAgents,
@@ -145,7 +146,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
         if (result.type === "Installed") {
           await fetch();
           onClose();
-          toast.success(`${result.result.name} installed`);
+          toast.success(`${result.result.name} 已安装`);
         } else if (result.type === "MultipleSkills") {
           setDiscoveredSkills(result.skills);
           setSelectedSkills(new Set(result.skills.map((s) => s.skill_id)));
@@ -188,15 +189,15 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
   };
 
   const isGit = mode === "git";
-  const title = isGit ? "Install from Git" : "Install from Local";
+  const title = isGit ? "从 Git 安装" : "从本地安装";
   const description = isGit
-    ? "Enter a Git repository URL containing a skill to install."
+    ? t("install_git_hint")
     : isDesktop()
-      ? "Enter a local directory path containing a skill, or browse to select."
-      : "Enter a local directory path containing a skill.";
+      ? t("install_local_hint_with_browse")
+      : t("install_local_hint");
   const placeholder = isGit
-    ? "https://github.com/user/skill-repo"
-    : "Paste a local directory path...";
+    ? "https://github.com/user/skillrepo"
+    : t("install_local_placeholder");
   const buttonLabel = isGit ? (
     loading ? (
       <>
@@ -204,7 +205,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
         <AnimatedEllipsis />
       </>
     ) : (
-      "Install"
+      t("install")
     )
   ) : loading ? (
     <>
@@ -212,7 +213,7 @@ export function InstallDialog({ open, mode, onClose }: InstallDialogProps) {
       <AnimatedEllipsis />
     </>
   ) : (
-    "Install"
+    t("install")
   );
 
   return (

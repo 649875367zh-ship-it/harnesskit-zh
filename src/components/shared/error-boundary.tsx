@@ -1,5 +1,6 @@
 import type { ErrorInfo, ReactNode } from "react";
 import { Component } from "react";
+import { t } from "../../lib/i18n";
 
 interface Props {
   children: ReactNode;
@@ -51,7 +52,7 @@ export class ErrorBoundary extends Component<Props, State> {
               Something went wrong
             </h2>
             <p className="text-sm text-muted-foreground">
-              {this.state.error?.message ?? "An unexpected error occurred."}
+              {this.state.error?.message ?? t("error_unexpected")}
             </p>
             <button
               onClick={() => window.location.reload()}

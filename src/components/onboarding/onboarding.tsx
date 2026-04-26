@@ -346,7 +346,7 @@ function StepWelcome() {
       </div>
 
       <h1 className="font-serif text-[44px] font-semibold tracking-tight leading-[1.1] text-foreground">
-        Welcome to <span style={shimmerStyle}>HarnessKit</span>
+        欢迎使用 <span style={shimmerStyle}>HarnessKit</span>
       </h1>
       <p className="mt-3 text-[15px] font-medium text-primary/70">
         One home for every agent
@@ -663,11 +663,11 @@ function MockExtensionsPreview() {
             <td className="pb-1 pl-2" style={{ width: "20%" }}>
               Name
             </td>
-            <td className="pb-1 text-center">Kind</td>
+            <td className="pb-1 text-center">Kind 类型</td>
             <td className="pb-1 text-center">Agent</td>
-            <td className="pb-1 text-center">Perms</td>
-            <td className="pb-1 text-center">Score</td>
-            <td className="pb-1 text-center pr-2">Status</td>
+            <td className="pb-1 text-center">Perms 权限</td>
+            <td className="pb-1 text-center">Score 评分</td>
+            <td className="pb-1 text-center pr-2">Status 状态</td>
           </tr>
         </thead>
         <tbody>
@@ -1140,7 +1140,7 @@ function MockAuditRow({
         <span className="flex-1 text-[11px] text-muted-foreground/60">
           {item.name}
         </span>
-        <span className="text-[9px] text-muted-foreground/35">Clean</span>
+        <span className="text-[9px] text-muted-foreground/35">Clean 干净</span>
       </div>
     );
   }

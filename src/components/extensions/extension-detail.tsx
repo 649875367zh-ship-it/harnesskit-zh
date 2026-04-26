@@ -9,6 +9,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { t } from "../../lib/i18n";
 import { DeleteDialog } from "@/components/extensions/delete-dialog";
 import { CliSections } from "@/components/extensions/detail-cli-sections";
 import { DetailHeader } from "@/components/extensions/detail-header";
@@ -149,8 +150,8 @@ export function ExtensionDetail() {
             <>
               <span>
                 {group.kind === "mcp"
-                  ? "This MCP server is part of "
-                  : "This skill is part of "}
+                  ? t("detail_mcp_part_of")
+                  : t("detail_skill_part_of")}
               </span>
               <button
                 onClick={cliParent.onNavigate}
@@ -181,7 +182,7 @@ export function ExtensionDetail() {
                 : "bg-muted text-muted-foreground"
             }`}
           >
-            {group.enabled ? "Enabled" : "Disabled"}
+            {group.enabled ? t("detail_enabled") : t("detail_disabled")}
           </button>
           {group.source.origin === "git" && group.pack ? (
             <a
@@ -196,7 +197,7 @@ export function ExtensionDetail() {
           ) : (
             <input
               type="text"
-              placeholder="No source"
+              placeholder={t("detail_no_source")}
               defaultValue={group.pack ?? ""}
               key={group.groupKey}
               onBlur={(e) => {
@@ -326,7 +327,7 @@ export function ExtensionDetail() {
               <div className="mt-3">
                 <h4
                   className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
-                  title="Copy this extension's configuration to another agent on your machine"
+                  title={t("detail_copy_config_title")}
                 >
                   Install to Agent
                 </h4>
@@ -522,7 +523,7 @@ export function ExtensionDetail() {
                 );
                 if (agents.length === group.agents.length) setSelectedId(null);
               } catch {
-                toast.error("Failed to delete");
+                toast.error(t("detail_failed_to_delete"));
               } finally {
                 setDeleting(false);
                 setShowDelete(false);

@@ -110,7 +110,7 @@ export function NewSkillsDialog({
       onClose();
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : String(e);
-      toast.error(`Failed to install: ${msg}`);
+      toast.error(`安装失败: ${msg}`);
     } finally {
       setInstalling(false);
     }
